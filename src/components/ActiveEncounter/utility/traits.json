@@ -80,7 +80,7 @@
   { "type": "Controller",   "trait": "Crippling Strike: ur attack damage to reduce your target’s speed to 0ft until the start of your next turn."},
   { "type": "Controller",   "trait": "Distraction: ve your attack damage to grant advantage to the next attack roll made against the target."},
   { "type": "Controller",   "trait": "Get Into Position: r attack damage to allow an ally to spend their reaction and move up to half their speed (without provoking opportunity attacks from the target)."},
-  { "type": "Controller",   "trait": "Knockback: alve your attack damage to knock the target back up to 15ft."},
+  { "type": "Controller",   "trait": "Knockback: Halve your attack damage to knock the target back up to 15ft."},
   { "type": "Controller",   "trait": "Sidestep: Halve your attack damage to move yourself and your target 5ft in any direction."},
   { "type": "Defender",     "trait": "Don’t Look Away: When you attack a target, you can mark them. A marked target has -2 to any attack roll that doesn’t include you. You can have one active mark at a time, and marks don’t stack."},
   { "type": "Defender",     "trait": "Get Behind Me: Allies within 5ft of you count as being in three-quarters cover."},
