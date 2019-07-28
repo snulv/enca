@@ -1,0 +1,28 @@
+export interface IMonster {
+  type: string;
+  rank: string;
+  level: string;
+  ac: string;
+  hp: string;
+  attack: string;
+  damage: string;
+  spellSave: string;
+  spellMod: string;
+  perception: string;
+  stealth: string;
+  init: string;
+  prof: string;
+  save1: string;
+  save2: string;
+  save3: string;
+  a1: string;
+  a2: string;
+  a3: string;
+  a4: string;
+  a5: string;
+  a6: string;
+  exp: string;
+  speed: string;
+  traits: string[];
+  paragon: string[];
+};
