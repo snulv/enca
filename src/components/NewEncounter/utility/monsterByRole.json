@@ -1,6 +1,6 @@
 [
-  {"type": "Controller", "ac":  "-2", "saving":  "-1", "hp": "1",    "attack": "0",  "dmg": "0",    "speed": "0",   "perception": false, "stealth": false, "init": true},
-  {"type": "Defender",   "ac":  "+2", "saving":  "+1", "hp": "1",    "attack": "0",  "dmg": "0",    "speed": "-10", "perception": true, "stealth": false, "init": false},
+  {"type": "Controller", "ac":  "-2", "saving":  "-1", "hp": "1",    "attack": "0",  "dmg": "1",    "speed": "0",   "perception": false, "stealth": false, "init": true},
+  {"type": "Defender",   "ac":  "+2", "saving":  "+1", "hp": "1",    "attack": "0",  "dmg": "1",    "speed": "-10", "perception": true, "stealth": false, "init": false},
   {"type": "Lurker",     "ac":  "-4", "saving":  "-2", "hp": "0.5",  "attack": "+2", "dmg": "1.5",  "speed": "0",   "perception": true, "stealth": true, "init": false},
   {"type": "Scout",      "ac":  "-2", "saving":  "-1", "hp": "1",    "attack": "0",  "dmg": "0.75", "speed": "+10", "perception": true, "stealth": true, "init": true},
   {"type": "Sniper",     "ac":  "0" , "saving":  "0" , "hp": "0.75", "attack": "0",  "dmg": "1.25", "speed": "0",   "perception": false, "stealth": true, "init": false},
