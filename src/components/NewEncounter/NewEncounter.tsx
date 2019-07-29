@@ -10,8 +10,9 @@ import {IRole} from "./types/role";
 import modifyMonsterByRole from "./utility/modifyMonsterByRole";
 import {IRank} from "./types/rank";
 import modifyMonsterByRank from "./utility/modifyMonsterByRank";
-import {createNewEncounter, useEncounterContext} from "../../contexts/EncounterContext";
+import {createNewEncounter, IBaseEncounter, useEncounterContext} from "../../contexts/EncounterContext";
 import ResponsiveView from "../../utility/ResponsiveView";
+import {usePermaEncounterContext} from "../../contexts/SaveListContext";
 
 interface IProps {
 }
@@ -35,7 +36,21 @@ function NewEncounter({}: IProps) {
     setRank(e.target.value);
   };
 
+  const {permaEncounterList} = usePermaEncounterContext();
+  const [permaItem, setPermaItem] = useState<''>('');
+  const handleChangePermaItem = (e: any) => {
+    setPermaItem(e.target.value);
+  };
+
   const handleAddMonster = () => {
+    if (permaItem) {
+      const encounter = permaEncounterList.find(item => item.label === permaItem);
+      if (encounter) {
+        addEncounter(encounter);
+        return;
+      }
+    }
+
     let monster = getMonsterByLevel(level);
     monster = modifyMonsterByRole(monster, role);
     monster = modifyMonsterByRank(monster, rank, encounterList.filter(item => item.perma).length);
@@ -108,6 +123,17 @@ function NewEncounter({}: IProps) {
               <Input id="rank" type="select" name="selectLevel" value={rank} onChange={handleChangeRank}>
                 { (monstersByRank as IRank[]).map(item => (
                   <option key={item.type} value={item.type}>{item.type}</option>
+                ))}
+              </Input>
+            </div>
+          </div>
+          <div className="pr-5">
+            <div className="pr-5">
+              <Label htmlFor="saved">Saved</Label>
+              <Input className="pr-5" id="saved" type="select" name="selectLevel" value={permaItem} onChange={handleChangePermaItem}>
+                <option value="" />
+                { permaEncounterList.map(item => (
+                  <option key={item.label} value={item.label}>{item.label}</option>
                 ))}
               </Input>
             </div>

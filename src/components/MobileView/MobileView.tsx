@@ -86,16 +86,16 @@ function MobileView({}: IProps) {
       )}
       <div className="fixed-bottom">
         <ButtonGroup className="d-flex">
-          <Button className="w-100" onClick={handleRoll} color="info" size="lg">
+          <Button className="w-100 c-mobile-nav__item" onClick={handleRoll} color="info" size="lg">
             Roll
           </Button>
-          <Button className="w-100" onClick={handleClearList} color="danger" size="lg">
+          <Button className="w-100 c-mobile-nav__item" onClick={handleClearList} color="danger" size="lg">
             Clear
           </Button>
-          <Button className="w-100" onClick={handleChangeView('deal')} color="warning" size="lg">
+          <Button className="w-100 c-mobile-nav__item" onClick={handleChangeView('deal')} color="warning" size="lg">
             Deal
           </Button>
-          <Button className="w-100" onClick={handleChangeView('new')} color="success" size="lg">
+          <Button className="w-100 c-mobile-nav__item" onClick={handleChangeView('new')} color="success" size="lg">
             New
           </Button>
         </ButtonGroup>

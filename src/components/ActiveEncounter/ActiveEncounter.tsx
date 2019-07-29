@@ -1,11 +1,12 @@
 import * as React from 'react';
 import PresentMonster from "../PresentMonster";
 import {IEncounter, useEncounterContext} from "../../contexts/EncounterContext";
-import {FormGroup, Label, Input} from "reactstrap";
+import {FormGroup, Label, Input, InputGroup, InputGroupAddon, Button} from "reactstrap";
 import {default as traits} from './utility/traits.json';
 import {default as spells} from './utility/spells.json';
 import {IMonster} from "../NewEncounter/types/monster";
 import {useState} from "react";
+import {usePermaEncounterContext} from "../../contexts/SaveListContext";
 
 interface IProps {
   encounter: IEncounter;
@@ -65,6 +66,23 @@ function ActiveEncounter({ encounter }: IProps) {
 
   };
 
+  const [nameValue, setNameValue] = useState('');
+  const {addPermaEncounter} = usePermaEncounterContext();
+
+  const handleInputChange = (e: any) => {
+    setNameValue(e.target.value);
+  };
+
+  const handleSave = (e: any) => {
+    if (nameValue) {
+      addPermaEncounter({
+        ...encounter,
+        label: nameValue,
+        active: false,
+      });
+    }
+  };
+
   return (
     <div>
       {encounter.monster && (
@@ -97,6 +115,13 @@ function ActiveEncounter({ encounter }: IProps) {
                 ))
               }
             </Input>
+            <Label for="save">Save</Label>
+            <InputGroup>
+              <Input id="save" value={nameValue} onChange={handleInputChange}/>
+              <InputGroupAddon addonType="append">
+                <Button onClick={handleSave} color="success">Save</Button>
+              </InputGroupAddon>
+            </InputGroup>
           </FormGroup>
         </React.Fragment>
       )}
