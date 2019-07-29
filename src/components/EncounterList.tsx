@@ -9,11 +9,11 @@ interface IProps {
 function EncounterList({}: IProps) {
   const { encounterList, addEncounter, editEncounter } = useEncounterContext();
   useEffect(() => {
-    addEncounter({...createNewEncounter('Alvyn'), ac: 15, initMod: 3, hp: 50, perma: true });
-    addEncounter({...createNewEncounter('Lewis'), ac: 15, initMod: 3, hp: 50, perma: true });
-    addEncounter({...createNewEncounter('Emerald'), ac: 15, initMod: 3, hp: 50, perma: true });
-    addEncounter({...createNewEncounter('Alice'), ac: 15, initMod: 3, hp: 50, perma: true });
-    addEncounter({...createNewEncounter('Edward'), ac: 15, initMod: 3, hp: 50, perma: true });
+    addEncounter({...createNewEncounter('Alice'), ac: 21, initMod: -1, hp: 0, perma: true });
+    addEncounter({...createNewEncounter('Alvyn'), ac: 10, initMod: 0, hp: 0, perma: true });
+    addEncounter({...createNewEncounter('Edward'), ac: 18, initMod: 6, hp: 0, perma: true });
+    addEncounter({...createNewEncounter('Emerald'), ac: 19, initMod: 0, hp: 0, perma: true });
+    addEncounter({...createNewEncounter('Lewis'), ac: 16, initMod: 4, hp: 0, perma: true });
   }, []);
 
   const toggleActive = (encounter: IEncounter) => (e: any) => {
