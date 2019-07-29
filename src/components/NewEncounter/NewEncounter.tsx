@@ -17,7 +17,7 @@ interface IProps {
 }
 
 function NewEncounter({}: IProps) {
-  const { addEncounter } = useEncounterContext();
+  const { encounterList, addEncounter } = useEncounterContext();
   const [level, setLevel] = useState<string>("-3");
   const [role, setRole] = useState<string>('Controller');
   const [rank, setRank] = useState<string>('Standard');
@@ -38,7 +38,7 @@ function NewEncounter({}: IProps) {
   const handleAddMonster = () => {
     let monster = getMonsterByLevel(level);
     monster = modifyMonsterByRole(monster, role);
-    monster = modifyMonsterByRank(monster, rank);
+    monster = modifyMonsterByRank(monster, rank, encounterList.filter(item => item.perma).length);
     addEncounter({
       ...createNewEncounter(`${monster.rank} ${monster.type} ${monster.level}`),
       initMod: Number(monster.init),
@@ -58,21 +58,21 @@ function NewEncounter({}: IProps) {
             <div style={{flexBasis: "30%"}}>
               <Input id="level" type="select" bsSize="sm" name="selectLevel" value={level} onChange={handleChangeLevel}>
                 { (monstersByLevel as IMonster[]).map(item => (
-                  <option value={item.level}>{item.level}</option>
+                  <option key={item.level} value={item.level}>{item.level}</option>
                 ))}
               </Input>
             </div>
             <div style={{flexBasis: "30%"}}>
               <Input id="role" type="select" bsSize="sm" name="selectLevel" value={role} onChange={handleChangeRole}>
                 { (monstersByRole as IRole[]).map(item => (
-                  <option value={item.type}>{item.type}</option>
+                  <option key={item.type} value={item.type}>{item.type}</option>
                 ))}
               </Input>
             </div>
             <div style={{flexBasis: "30%"}}>
               <Input id="rank" type="select" bsSize="sm" name="selectLevel" value={rank} onChange={handleChangeRank}>
                 { (monstersByRank as IRank[]).map(item => (
-                  <option value={item.type}>{item.type}</option>
+                  <option key={item.type} value={item.type}>{item.type}</option>
                 ))}
               </Input>
             </div>
@@ -91,7 +91,7 @@ function NewEncounter({}: IProps) {
               <Label htmlFor="level">Level</Label>
               <Input id="level" type="select" name="selectLevel" value={level} onChange={handleChangeLevel}>
                 { monstersByLevel.map(item => (
-                  <option value={item.level}>{item.level}</option>
+                  <option key={item.level} value={item.level}>{item.level}</option>
                 ))}
               </Input>
             </div>
@@ -99,7 +99,7 @@ function NewEncounter({}: IProps) {
               <Label htmlFor="role">Role</Label>
               <Input id="role" type="select" name="selectLevel" value={role} onChange={handleChangeRole}>
                 { (monstersByRole as IRole[]).map(item => (
-                  <option value={item.type}>{item.type}</option>
+                  <option key={item.type} value={item.type}>{item.type}</option>
                 ))}
               </Input>
             </div>
@@ -107,7 +107,7 @@ function NewEncounter({}: IProps) {
               <Label htmlFor="rank">Rank</Label>
               <Input id="rank" type="select" name="selectLevel" value={rank} onChange={handleChangeRank}>
                 { (monstersByRank as IRank[]).map(item => (
-                  <option value={item.type}>{item.type}</option>
+                  <option key={item.type} value={item.type}>{item.type}</option>
                 ))}
               </Input>
             </div>

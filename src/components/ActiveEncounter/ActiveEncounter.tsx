@@ -67,7 +67,7 @@ function ActiveEncounter({ encounter }: IProps) {
               { traits
                 .filter(item => item.type === 'any')
                 .map(item => (
-                  <option value={item.trait}>{item.trait.split(/:/)[0]}</option>
+                  <option key={item.trait.split(/:/)[0]} value={item.trait}>{item.trait.split(/:/)[0]}</option>
                 ))
               }
             </Input>
@@ -76,7 +76,7 @@ function ActiveEncounter({ encounter }: IProps) {
               { traits
                 .filter(item => item.type === (encounter.monster as IMonster).type)
                 .map(item => (
-                  <option value={item.trait}>{item.trait.split(/:/)[0]}</option>
+                  <option key={item.trait.split(/:/)[0]} value={item.trait}>{item.trait.split(/:/)[0]}</option>
                 ))
               }
             </Input>
