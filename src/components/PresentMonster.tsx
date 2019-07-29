@@ -5,20 +5,20 @@ interface IProps {
   monster: IMonster;
 }
 
-const calculateMultiAttacks = (dmg: number): number => {
+const calculateMultiAttacks = (dmg: number): string => {
   if (dmg <= 10) {
-    return 1;
+    return `${dmg} x1`;
   }
   if (dmg <= 30) {
-    return 2;
+    return `${Math.floor(dmg/2)} x2`;
   }
   if (dmg <= 60) {
-    return 3;
+    return `${Math.floor(dmg/3)} x3`;
   }
   if (dmg <= 100) {
-    return 4;
+    return `${Math.floor(dmg/4)} x4`;
   }
-  return 5;
+  return `${Math.floor(dmg/5)} x5`;
 };
 
 const PresentMonster = ({monster}: IProps) => (
