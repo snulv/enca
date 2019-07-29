@@ -5,16 +5,25 @@ import {IBaseEncounter} from "./EncounterContext";
 function usePermaEncounter() {
   const permaEncounter = window.localStorage.getItem('permaEncounter');
   const [permaEncounterList, setPermaEncounter] = useState<IBaseEncounter[]>(!!permaEncounter ? JSON.parse(permaEncounter) as IBaseEncounter[] : []);
-  const addPermaEncounter = (item: IBaseEncounter) => {
+  const savePermaEncounter = (item: IBaseEncounter) => {
     setPermaEncounter(prevPermaEncounter => {
-      const newList = [...prevPermaEncounter, {...item, item }];
+      let newList = [...prevPermaEncounter, {...item, item }];
+      const findOld = prevPermaEncounter.find(old => old.label === item.label);
+      if (findOld) {
+        newList = prevPermaEncounter.map(old => {
+          if (old.label === item.label) {
+            return item;
+          }
+          return old;
+        })
+      }
       window.localStorage.setItem('permaEncounter', JSON.stringify(newList));
       return newList;
     });
 
   };
 
-  return { permaEncounterList, addPermaEncounter };
+  return { permaEncounterList, savePermaEncounter };
 }
 
 export const usePermaEncounterContext = createUseContext(usePermaEncounter);

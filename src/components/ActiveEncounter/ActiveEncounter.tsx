@@ -67,7 +67,7 @@ function ActiveEncounter({ encounter }: IProps) {
   };
 
   const [nameValue, setNameValue] = useState('');
-  const {addPermaEncounter} = usePermaEncounterContext();
+  const {savePermaEncounter} = usePermaEncounterContext();
 
   const handleInputChange = (e: any) => {
     setNameValue(e.target.value);
@@ -75,7 +75,7 @@ function ActiveEncounter({ encounter }: IProps) {
 
   const handleSave = (e: any) => {
     if (nameValue) {
-      addPermaEncounter({
+      savePermaEncounter({
         ...encounter,
         label: nameValue,
         active: false,
