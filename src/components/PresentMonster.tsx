@@ -68,6 +68,18 @@ const PresentMonster = ({monster}: IProps) => (
     <div>
       <b className="text-danger">Area of effect:</b><span className="float-right">Half: {Math.floor(Number(monster.damage) * 0.5)}, None: {Math.floor(Number(monster.damage) * 0.75)}</span>
     </div>
+    <div>
+      <b className="text-danger">Movement attack:</b><span className="float-right">Push, Pull, Slide, Direct</span>
+    </div>
+    <div>
+      <b className="text-danger">Uncommon attack:</b><span className="float-right">Effect x2</span>
+    </div>
+    <div>
+      <b className="text-danger">Rare attack:</b><span className="float-right">Effect x3</span>
+    </div>
+    <div>
+      <b className="text-danger">Overkill attack:</b><span className="float-right">Effect x4</span>
+    </div>
     <div className="border-bottom border-danger my-2" />
     <div>
       <h5 className="text-danger">Paragon</h5>
