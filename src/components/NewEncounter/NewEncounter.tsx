@@ -11,6 +11,7 @@ import modifyMonsterByRole from "./utility/modifyMonsterByRole";
 import {IRank} from "./types/rank";
 import modifyMonsterByRank from "./utility/modifyMonsterByRank";
 import {createNewEncounter, useEncounterContext} from "../../contexts/EncounterContext";
+import ResponsiveView from "../../utility/ResponsiveView";
 
 interface IProps {
 }
@@ -50,37 +51,74 @@ function NewEncounter({}: IProps) {
 
 
   return (
-    <div className="position-fixed bg-light p-3" style={{width: '100vw', height: '175px', bottom: '0', left: '0'}}>
-      <div className="d-flex flex-row">
-        <div style={{flexBasis: "33%"}}>
-          <Label htmlFor="level">Level</Label>
-          <Input id="level" type="select" name="selectLevel" value={level} onChange={handleChangeLevel}>
-            { (monstersByLevel as IMonster[]).map(item => (
-              <option value={item.level}>{item.level}</option>
-            ))}
-          </Input>
+    <ResponsiveView
+      desktopView={
+        <div>
+          <div className="d-flex flex-row">
+            <div style={{flexBasis: "30%"}}>
+              <Input id="level" type="select" bsSize="sm" name="selectLevel" value={level} onChange={handleChangeLevel}>
+                { (monstersByLevel as IMonster[]).map(item => (
+                  <option value={item.level}>{item.level}</option>
+                ))}
+              </Input>
+            </div>
+            <div style={{flexBasis: "30%"}}>
+              <Input id="role" type="select" bsSize="sm" name="selectLevel" value={role} onChange={handleChangeRole}>
+                { (monstersByRole as IRole[]).map(item => (
+                  <option value={item.type}>{item.type}</option>
+                ))}
+              </Input>
+            </div>
+            <div style={{flexBasis: "30%"}}>
+              <Input id="rank" type="select" bsSize="sm" name="selectLevel" value={rank} onChange={handleChangeRank}>
+                { (monstersByRank as IRank[]).map(item => (
+                  <option value={item.type}>{item.type}</option>
+                ))}
+              </Input>
+            </div>
+            <div style={{flexBasis: "10%"}}>
+              <Button onClick={handleAddMonster} color="success" size="sm">
+                +
+              </Button>
+            </div>
+          </div>
         </div>
-        <div style={{flexBasis: "33%"}}>
-          <Label htmlFor="role">Role</Label>
-          <Input id="role" type="select" name="selectLevel" value={role} onChange={handleChangeRole}>
-            { (monstersByRole as IRole[]).map(item => (
-              <option value={item.type}>{item.type}</option>
-            ))}
-          </Input>
+      }
+      mobileView={(
+        <div className="position-fixed bg-light p-3" style={{width: '100vw', height: '175px', bottom: '0', left: '0'}}>
+          <div className="d-flex flex-row">
+            <div style={{flexBasis: "33%"}}>
+              <Label htmlFor="level">Level</Label>
+              <Input id="level" type="select" name="selectLevel" value={level} onChange={handleChangeLevel}>
+                { monstersByLevel.map(item => (
+                  <option value={item.level}>{item.level}</option>
+                ))}
+              </Input>
+            </div>
+            <div style={{flexBasis: "33%"}}>
+              <Label htmlFor="role">Role</Label>
+              <Input id="role" type="select" name="selectLevel" value={role} onChange={handleChangeRole}>
+                { (monstersByRole as IRole[]).map(item => (
+                  <option value={item.type}>{item.type}</option>
+                ))}
+              </Input>
+            </div>
+            <div style={{flexBasis: "33%"}}>
+              <Label htmlFor="rank">Rank</Label>
+              <Input id="rank" type="select" name="selectLevel" value={rank} onChange={handleChangeRank}>
+                { (monstersByRank as IRank[]).map(item => (
+                  <option value={item.type}>{item.type}</option>
+                ))}
+              </Input>
+            </div>
+          </div>
+          <Button onClick={handleAddMonster} color="success" size="lg" className="rounded-circle position-fixed" style={{bottom: '15px', right: '15px'}}>
+            +
+          </Button>
         </div>
-        <div style={{flexBasis: "33%"}}>
-          <Label htmlFor="rank">Rank</Label>
-          <Input id="rank" type="select" name="selectLevel" value={rank} onChange={handleChangeRank}>
-            { (monstersByRank as IRank[]).map(item => (
-              <option value={item.type}>{item.type}</option>
-            ))}
-          </Input>
-        </div>
-      </div>
-      <Button onClick={handleAddMonster} color="success" size="lg" className="rounded-circle position-fixed" style={{bottom: '15px', right: '15px'}}>
-        +
-      </Button>
-    </div>
+      )}
+    />
+
   );
 }
 
