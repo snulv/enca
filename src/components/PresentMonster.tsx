@@ -5,6 +5,22 @@ interface IProps {
   monster: IMonster;
 }
 
+const calculateMultiAttacks = (dmg: number): number => {
+  if (dmg <= 10) {
+    return 1;
+  }
+  if (dmg <= 30) {
+    return 2;
+  }
+  if (dmg <= 60) {
+    return 3;
+  }
+  if (dmg <= 100) {
+    return 4;
+  }
+  return 5;
+};
+
 const PresentMonster = ({monster}: IProps) => (
   <div className="my-3">
     <h4 className="text-danger">{monster.rank} {monster.type} {monster.level}</h4>
@@ -42,6 +58,15 @@ const PresentMonster = ({monster}: IProps) => (
     </div>
     <div>
       <b className="text-danger">Attack dc:</b><span className="float-right">Primary: {monster.spellSave}, Secondary: {monster.spellMod}</span>
+    </div>
+    <div>
+      <b className="text-danger">Multiattack:</b><span className="float-right">{calculateMultiAttacks(Number(monster.damage))}</span>
+    </div>
+    <div>
+      <b className="text-danger">Condition attack:</b><span className="float-right">Once per turn</span>
+    </div>
+    <div>
+      <b className="text-danger">Area of effect:</b><span className="float-right">Half: {Math.floor(Number(monster.damage) * 0.5)}, None: {Math.floor(Number(monster.damage) * 0.75)}</span>
     </div>
     <div className="border-bottom border-danger my-2" />
     <div>
