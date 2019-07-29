@@ -93,7 +93,7 @@ function ActiveEncounter({ encounter }: IProps) {
             <Input type="select" name="selectMultiSpell" id="selectSpell" multiple onChange={handleSpells}>
               { spells
                 .map(item => (
-                  <option key={item.type} value={`${item.type}: ${item.details}`}>{item.type}</option>
+                  <option key={item.type} value={`${item.type} Magic: ${item.details}`}>{item.type}</option>
                 ))
               }
             </Input>
