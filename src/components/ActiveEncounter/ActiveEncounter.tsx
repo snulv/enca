@@ -3,6 +3,7 @@ import PresentMonster from "../PresentMonster";
 import {IEncounter, useEncounterContext} from "../../contexts/EncounterContext";
 import {FormGroup, Label, Input} from "reactstrap";
 import {default as traits} from './utility/traits.json';
+import {default as spells} from './utility/spells.json';
 import {IMonster} from "../NewEncounter/types/monster";
 import {useState} from "react";
 
@@ -15,6 +16,7 @@ function ActiveEncounter({ encounter }: IProps) {
 
   const [selectedTraits, setTraits] = useState<string[]>([]);
   const [selectedPowers, setPowers] = useState<string[]>([]);
+  const [selectedSpells, setSpells] = useState<string[]>([]);
 
   const handleSelected = (event: any): string[] => {
     let opts = [], opt;
@@ -46,13 +48,20 @@ function ActiveEncounter({ encounter }: IProps) {
   const handleTraits = (event: any) => {
     const selection = handleSelected(event);
     setTraits(selection);
-    handleUpdateList([...selection, ...selectedPowers]);
+    handleUpdateList([...selection, ...selectedPowers, ...selectedSpells]);
   };
 
   const handlePowers = (event: any) => {
     const selection = handleSelected(event);
     setPowers(selection);
-    handleUpdateList([...selectedTraits, ...selection]);
+    handleUpdateList([...selectedTraits, ...selection, ...selectedSpells]);
+
+  };
+
+  const handleSpells = (event: any) => {
+    const selection = handleSelected(event);
+    setSpells(selection);
+    handleUpdateList([...selectedTraits, ...selectedPowers, ...selection]);
 
   };
 
@@ -77,6 +86,14 @@ function ActiveEncounter({ encounter }: IProps) {
                 .filter(item => item.type === (encounter.monster as IMonster).type)
                 .map(item => (
                   <option key={item.trait.split(/:/)[0]} value={item.trait}>{item.trait.split(/:/)[0]}</option>
+                ))
+              }
+            </Input>
+            <Label for="selectSpell">Select Spells</Label>
+            <Input type="select" name="selectMultiSpell" id="selectSpell" multiple onChange={handleSpells}>
+              { spells
+                .map(item => (
+                  <option key={item.type} value={`${item.type}: ${item.details}`}>{item.type}</option>
                 ))
               }
             </Input>
