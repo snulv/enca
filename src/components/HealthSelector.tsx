@@ -39,25 +39,25 @@ function HealthSelector({value, onChangeHp}: IProps) {
     e.stopPropagation();
     let relevantY = e.changedTouches[0].screenY;
 
-    if (currentY - relevantY > 5) {
+    if (currentY - relevantY > 3) {
       setCurrentY(relevantY);
 
       const now = Date.now();
       setLastChange(now);
       if (now - lastChange < 30) {
-        onChangeHp(value + 5);
+        onChangeHp(value + 3);
         return;
       }
       onChangeHp(value + 1);
       return;
     }
-    if (currentY - relevantY < -4) {
+    if (currentY - relevantY < -3) {
       setCurrentY(relevantY);
 
       const now = Date.now();
       setLastChange(now);
       if (now - lastChange < 30) {
-        onChangeHp(value - 5);
+        onChangeHp(value - 3);
         return;
       }
       onChangeHp(value - 1);
