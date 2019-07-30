@@ -34,6 +34,8 @@ function HealthSelector({value, onChangeHp}: IProps) {
   };
 
   const moveTouch = (e: any) => {
+    e.preventDefault();
+    e.stopPropagation();
     let relevantY = e.changedTouches[0].screenY;
     setCurrentY(relevantY);
 
