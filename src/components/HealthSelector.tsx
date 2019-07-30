@@ -26,13 +26,12 @@ function HealthSelector({value, onChangeHp}: IProps) {
   };
 
   const [currentY, setCurrentY] = useState(0);
-  const [startY, setStartY] = useState(0);
+  const [lastChange, setLastChange] = useState(0);
+
 
   const startTouch = (e: any) => {
-    e.preventDefault();
-    e.stopPropagation();
-    setCurrentY(e.changedTouches[0].screenY);
-    setStartY(e.changedTouches[0].screenY);
+    setLastChange(Date.now());
+
   };
 
   const moveTouch = (e: any) => {
@@ -41,43 +40,31 @@ function HealthSelector({value, onChangeHp}: IProps) {
     let relevantY = e.changedTouches[0].screenY;
     setCurrentY(relevantY);
 
-    // We do more rapid changes after a certain amount in the same direction
-    if (startY - relevantY > 50) {
-      // If we have changed direction we reset startY
-      if (relevantY - startY > 0) {
-        setStartY(e.changedTouches[0].screenY);
+    if (currentY - relevantY > 5) {
+      const now = Date.now();
+      setLastChange(now);
+      if (now - lastChange < 30) {
+        onChangeHp(value + 3);
+        return;
       }
-      if (currentY - relevantY > 1) {
+      if (now - lastChange < 60) {
         onChangeHp(value + 2);
         return;
       }
-    }
-    if (currentY - relevantY > 1) {
-      // If we have changed direction we reset startY
-      if (relevantY - startY > 0) {
-        setStartY(e.changedTouches[0].screenY);
-      }
-
       onChangeHp(value + 1);
       return;
     }
-    // We do more rapid changes after a certain amount in the same direction
-    if (startY - relevantY < -50) {
-      // If we have changed direction we reset startY
-      if (relevantY - startY < 0) {
-        setStartY(e.changedTouches[0].screenY);
+    if (currentY - relevantY < -4) {
+      const now = Date.now();
+      setLastChange(now);
+      if (now - lastChange < 30) {
+        onChangeHp(value - 3);
+        return;
       }
-      if (currentY - relevantY < -1) {
+      if (now - lastChange < 60) {
         onChangeHp(value - 2);
         return;
       }
-    }
-    if (currentY - relevantY < -1) {
-      // If we have changed direction we reset startY
-      if (relevantY - startY < 0) {
-        setStartY(e.changedTouches[0].screenY);
-      }
-
       onChangeHp(value - 1);
     }
   };
