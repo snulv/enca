@@ -29,6 +29,8 @@ function HealthSelector({value, onChangeHp}: IProps) {
   const [startY, setStartY] = useState(0);
 
   const startTouch = (e: any) => {
+    e.preventDefault();
+    e.stopPropagation();
     setCurrentY(e.changedTouches[0].screenY);
     setStartY(e.changedTouches[0].screenY);
   };
@@ -114,7 +116,7 @@ function HealthSelector({value, onChangeHp}: IProps) {
           </div>
           <div className="w-100 d-flex justify-content-center">
             <div
-              className="bg-gradient mx-3 rounded"
+              className="bg-gradient mx-3 rounded no-touch"
               style={{width: '50%', height: '100%'}}
               onTouchStart={startTouch}
               onTouchMove={moveTouch}
