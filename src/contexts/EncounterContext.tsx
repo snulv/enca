@@ -67,6 +67,7 @@ function useEncounter() {
     }
     return item;
   }));
+  const setEncounterList = (newList: IEncounter[]) => setEncounter(newList);
   const clearEncounter = () => {
     setEncounter(defaultEncounter);
   };
@@ -87,9 +88,9 @@ function useEncounter() {
         })
       }
     });
-    setEncounter(mutateList);
+    setEncounter(mutateList.sort((item1, item2) => item2.init - item1.init));
   };
-  return { encounterList, addEncounter, removeEncounter, editEncounter, clearEncounter, rollInitiative };
+  return { encounterList, addEncounter, removeEncounter, editEncounter, clearEncounter, rollInitiative, setEncounterList };
 }
 
 export const useEncounterContext = createUseContext(useEncounter);
