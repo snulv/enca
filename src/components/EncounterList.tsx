@@ -62,7 +62,7 @@ function EncounterList() {
           <th>Ini</th>
           <th>Name</th>
           <th>HP</th>
-          <th>Sort</th>
+          <th><span className="float-right">Sort</span></th>
         </tr>
       </thead>
       <SortableList

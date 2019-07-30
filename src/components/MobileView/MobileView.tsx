@@ -103,6 +103,9 @@ function MobileView({}: IProps) {
         {bottomBarView === 'new' && (
           <BottomBar onClickOutside={handleChangeView('')}>
             <NewEncounter />
+            <Button onClick={handleChangeView('')} color="danger" size="lg" className="rounded-circle position-fixed" style={{bottom: '15px', right: '75px'}}>
+              X
+            </Button>
           </BottomBar>
         )}
       </div>

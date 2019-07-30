@@ -129,13 +129,15 @@ function NewEncounter({}: IProps) {
           </div>
           <div className="pr-5">
             <div className="pr-5">
-              <Label htmlFor="saved">Saved</Label>
-              <Input className="pr-5" id="saved" type="select" name="selectLevel" value={permaItem} onChange={handleChangePermaItem}>
-                <option value="" />
-                { permaEncounterList.map(item => (
-                  <option key={item.label} value={item.label}>{item.label}</option>
-                ))}
-              </Input>
+              <div className="pr-5">
+                <Label htmlFor="saved">Saved</Label>
+                <Input className="pr-5" id="saved" type="select" name="selectLevel" value={permaItem} onChange={handleChangePermaItem}>
+                  <option value="" />
+                  { permaEncounterList.map(item => (
+                    <option key={item.label} value={item.label}>{item.label}</option>
+                  ))}
+                </Input>
+              </div>
             </div>
           </div>
           <Button onClick={handleAddMonster} color="success" size="lg" className="rounded-circle position-fixed" style={{bottom: '15px', right: '15px'}}>
