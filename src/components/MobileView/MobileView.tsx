@@ -71,15 +71,13 @@ function MobileView({}: IProps) {
       styles={{ sidebar: { background: "white", padding: "5px", maxWidth: '75vw', width: '100%', zIndex: '1040' } }}
       pullRight
     >
-      <div className="d-flex flex-column" style={{ height: '100vh' }}>
-        <div className="pb-5 h-100 overflow-auto">
+      <div className="d-flex flex-column" style={{ height: '100%' }}>
+        <div className="pb-2 h-100 overflow-auto">
           <EncounterList />
         </div>
         {bottomBarView === 'deal' ? (
-          <div className="bg-light p-3" style={{width: '100vw', height: '175px'}}>
-            <div className="d-flex justify-content-center">
-              <HealthSelector value={damageMod} onChangeHp={handleHealthSelection} />
-            </div>
+          <div className="bg-light p-2" style={{width: '100vw'}}>
+            <HealthSelector value={damageMod} onChangeHp={handleHealthSelection} />
             <Button onClick={handleChangeView('')} color="danger" size="lg" className="rounded-circle position-fixed" style={{bottom: '15px', right: '15px'}}>
               X
             </Button>

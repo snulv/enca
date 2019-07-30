@@ -28,7 +28,7 @@ function ResponsiveView({
     [] as ReadonlyArray<any>
   );
 
-  return <div ref={containerEl}>{isMobile ? mobileView : desktopView}</div>;
+  return <div ref={containerEl} style={{ height: '100%', width: '100%' }}>{isMobile ? mobileView : desktopView}</div>;
 }
 
 export default ResponsiveView;
