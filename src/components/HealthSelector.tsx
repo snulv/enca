@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {Button, Input, InputGroup, InputGroupAddon} from "reactstrap";
 import ResponsiveView from "../utility/ResponsiveView";
-import {TouchEventHandler, useState} from "react";
+import {useState} from "react";
 
 interface IProps {
   value: number;
@@ -23,6 +23,10 @@ function HealthSelector({value, onChangeHp}: IProps) {
 
   const handleFlip = () => {
     onChangeHp(-value);
+  };
+
+  const handleReset = () =>  {
+    onChangeHp(value-value);
   };
 
   const [currentY, setCurrentY] = useState(0);
@@ -107,6 +111,7 @@ function HealthSelector({value, onChangeHp}: IProps) {
           <div className="w-100 d-flex flex-column">
             <Button className="m-2" size="sm" onClick={handleHalf} color="info">Half</Button>
             <Button className="m-2" size="sm" onClick={handleFlip} color="info">Flip</Button>
+            <Button className="m-2" size="sm" onClick={handleReset} color="info">Reset</Button>
           </div>
         </div>
       )}

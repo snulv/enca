@@ -15,7 +15,7 @@ interface IProps {
 function MobileView({}: IProps) {
   const { encounterList, clearEncounter, rollInitiative, editEncounter } = useEncounterContext();
   const [bottomBarView, setBottomBarView] = useState('');
-  const [ damageMod, setDamageMod ] = useState(10);
+  const [ damageMod, setDamageMod ] = useState(0);
 
   const handleChangeView = (view: string) => () => {
     setBottomBarView(view);
