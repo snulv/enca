@@ -42,17 +42,17 @@ function HealthSelector({value, onChangeHp}: IProps) {
     setCurrentY(relevantY);
 
     // We do more rapid changes after a certain amount in the same direction
-    if (startY - relevantY > 30) {
+    if (startY - relevantY > 50) {
       // If we have changed direction we reset startY
       if (relevantY - startY > 0) {
         setStartY(e.changedTouches[0].screenY);
       }
       if (currentY - relevantY > 1) {
-        onChangeHp(value + 1);
+        onChangeHp(value + 2);
         return;
       }
     }
-    if (currentY - relevantY > 3) {
+    if (currentY - relevantY > 1) {
       // If we have changed direction we reset startY
       if (relevantY - startY > 0) {
         setStartY(e.changedTouches[0].screenY);
@@ -62,17 +62,17 @@ function HealthSelector({value, onChangeHp}: IProps) {
       return;
     }
     // We do more rapid changes after a certain amount in the same direction
-    if (startY - relevantY < -30) {
+    if (startY - relevantY < -50) {
       // If we have changed direction we reset startY
       if (relevantY - startY < 0) {
         setStartY(e.changedTouches[0].screenY);
       }
       if (currentY - relevantY < -1) {
-        onChangeHp(value - 1);
+        onChangeHp(value - 2);
         return;
       }
     }
-    if (currentY - relevantY < -3) {
+    if (currentY - relevantY < -1) {
       // If we have changed direction we reset startY
       if (relevantY - startY < 0) {
         setStartY(e.changedTouches[0].screenY);
