@@ -47,10 +47,6 @@ function HealthSelector({value, onChangeHp}: IProps) {
         onChangeHp(value + 3);
         return;
       }
-      if (now - lastChange < 60) {
-        onChangeHp(value + 2);
-        return;
-      }
       onChangeHp(value + 1);
       return;
     }
@@ -59,10 +55,6 @@ function HealthSelector({value, onChangeHp}: IProps) {
       setLastChange(now);
       if (now - lastChange < 30) {
         onChangeHp(value - 3);
-        return;
-      }
-      if (now - lastChange < 60) {
-        onChangeHp(value - 2);
         return;
       }
       onChangeHp(value - 1);
@@ -93,12 +85,12 @@ function HealthSelector({value, onChangeHp}: IProps) {
       mobileView={(
         <div className="d-flex" style={{ height: '200px'}}>
           <div className="w-100 d-flex flex-column justify-content-center">
-            <div className="p-2 text-center border border-success text-success">
-              {value > 0 && value}
+            <div role="button" onClick={handleChange(1)} className="p-2 text-center border border-success text-success">
+              +{value > 0 && value}
             </div>
             <div><Input type="number" value={value} onChange={handleInputChange}/></div>
-            <div className="p-2 text-center border border-danger text-danger">
-              {value < 0 && value}
+            <div role="button" onClick={handleChange(-1)} className="p-2 text-center border border-danger text-danger">
+              {value < 0 ? value : '-'}
             </div>
           </div>
           <div className="w-100 d-flex justify-content-center">
