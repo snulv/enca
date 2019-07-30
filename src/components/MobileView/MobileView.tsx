@@ -6,8 +6,8 @@ import ActiveEncounter from "../ActiveEncounter/ActiveEncounter";
 import EncounterList from "../EncounterList";
 import {useEffect, useState} from "react";
 import {useEncounterContext} from "../../contexts/EncounterContext";
-import Sidebar from "../../utility/Sidebar";
 import HealthSelector from "../HealthSelector";
+import Sidebar from "react-sidebar";
 
 interface IProps {
 }
@@ -60,15 +60,16 @@ function MobileView({}: IProps) {
 
 
   return (
-    <React.Fragment>
+    <Sidebar
+      sidebar={( activeItem && <ActiveEncounter encounter={activeItem}/> )}
+      open={!!activeItem}
+      onSetOpen={handleOutSideSidebarClick}
+      styles={{ sidebar: { background: "white", padding: "5px", maxWidth: '75vw', width: '100%' } }}
+      pullRight
+    >
       <div className="pb-5">
         <EncounterList />
       </div>
-      { activeItem && (
-        <Sidebar onClickOutside={handleOutSideSidebarClick}>
-          <ActiveEncounter encounter={activeItem}/>
-        </Sidebar>
-      ) }
       {bottomBarView === 'new' && (
         <BottomBar onClickOutside={handleChangeView('')}>
           <NewEncounter />
@@ -100,7 +101,7 @@ function MobileView({}: IProps) {
           </Button>
         </ButtonGroup>
       </div>
-    </React.Fragment>
+    </Sidebar>
   );
 }
 
