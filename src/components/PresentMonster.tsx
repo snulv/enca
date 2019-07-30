@@ -57,28 +57,28 @@ const PresentMonster = ({monster}: IProps) => (
       <b className="text-danger">Attacks:</b><span className="float-right">Hit: {monster.attack}, Dmg: {monster.damage}</span>
     </div>
     <div>
-      <b className="text-danger">Attack dc:</b><span className="float-right">Primary: {monster.spellSave}, Secondary: {monster.spellMod}</span>
+      <b className="text-danger">Attack DC:</b><span className="float-right">Primary: {monster.spellSave}, Secondary: {monster.spellMod}</span>
     </div>
     <div>
-      <b className="text-danger">Multiattack:</b><span className="float-right">{calculateMultiAttacks(Number(monster.damage))}</span>
+      <b className="text-danger">Multi attack:</b><span className="float-right">{calculateMultiAttacks(Number(monster.damage))}</span>
     </div>
     <div>
-      <b className="text-danger">Condition attack:</b><span className="float-right">Once per turn</span>
+      <b className="text-danger">Condition:</b><span className="float-right">Once per turn</span>
     </div>
     <div>
       <b className="text-danger">Area of effect:</b><span className="float-right">Half: {Math.floor(Number(monster.damage) * 0.5)}, None: {Math.floor(Number(monster.damage) * 0.75)}</span>
     </div>
     <div>
-      <b className="text-danger">Movement attack:</b><span className="float-right">Push, Pull, Slide, Direct</span>
+      <b className="text-danger">Movement:</b><span className="float-right">Push, Pull, Slide, Direct</span>
     </div>
     <div>
-      <b className="text-danger">Uncommon attack:</b><span className="float-right">Effect x2</span>
+      <b className="text-danger">Uncommon:</b><span className="float-right">Effect x2</span>
     </div>
     <div>
-      <b className="text-danger">Rare attack:</b><span className="float-right">Effect x3</span>
+      <b className="text-danger">Rare:</b><span className="float-right">Effect x3</span>
     </div>
     <div>
-      <b className="text-danger">Overkill attack:</b><span className="float-right">Effect x4</span>
+      <b className="text-danger">Overkill:</b><span className="float-right">Effect x4</span>
     </div>
     <div className="border-bottom border-danger my-2" />
     <div>
