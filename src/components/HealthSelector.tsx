@@ -44,7 +44,7 @@ function HealthSelector({value, onChangeHp}: IProps) {
       const now = Date.now();
       setLastChange(now);
       if (now - lastChange < 30) {
-        onChangeHp(value + 3);
+        onChangeHp(value + 5);
         return;
       }
       onChangeHp(value + 1);
@@ -54,7 +54,7 @@ function HealthSelector({value, onChangeHp}: IProps) {
       const now = Date.now();
       setLastChange(now);
       if (now - lastChange < 30) {
-        onChangeHp(value - 3);
+        onChangeHp(value - 5);
         return;
       }
       onChangeHp(value - 1);
