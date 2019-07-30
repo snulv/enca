@@ -61,10 +61,16 @@ function MobileView({}: IProps) {
 
   return (
     <Sidebar
-      sidebar={( activeItem && <ActiveEncounter encounter={activeItem}/> )}
+      sidebar={( activeItem && (
+        <div className="pb-5">
+          <div className="p-2 pb-5">
+            <ActiveEncounter encounter={activeItem}/>
+          </div>
+        </div>
+      ))}
       open={!!activeItem}
       onSetOpen={handleOutSideSidebarClick}
-      styles={{ sidebar: { background: "white", padding: "5px", maxWidth: '75vw', width: '100%' } }}
+      styles={{ sidebar: { background: "white", padding: "5px", maxWidth: '75vw', width: '100%', zIndex: '1040' } }}
       pullRight
     >
       <div className="pb-5">
