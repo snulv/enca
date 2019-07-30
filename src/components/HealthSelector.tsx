@@ -38,9 +38,10 @@ function HealthSelector({value, onChangeHp}: IProps) {
     e.preventDefault();
     e.stopPropagation();
     let relevantY = e.changedTouches[0].screenY;
-    setCurrentY(relevantY);
 
     if (currentY - relevantY > 5) {
+      setCurrentY(relevantY);
+
       const now = Date.now();
       setLastChange(now);
       if (now - lastChange < 30) {
@@ -51,6 +52,8 @@ function HealthSelector({value, onChangeHp}: IProps) {
       return;
     }
     if (currentY - relevantY < -4) {
+      setCurrentY(relevantY);
+
       const now = Date.now();
       setLastChange(now);
       if (now - lastChange < 30) {
