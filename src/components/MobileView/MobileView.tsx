@@ -72,7 +72,7 @@ function MobileView({}: IProps) {
       pullRight
     >
       <div className="d-flex flex-column" style={{ height: '100%' }}>
-        <div className="pb-2 h-100 overflow-auto">
+        <div className="pb-2 h-100" style={{ overflowX: 'hidden', overflowY: 'auto' }}>
           <EncounterList />
         </div>
         {bottomBarView === 'deal' ? (
