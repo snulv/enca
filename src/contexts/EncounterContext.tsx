@@ -31,18 +31,16 @@ export function createNewEncounter(name?: string, init?: number): IBaseEncounter
   }
 }
 
-let nextNumber = 6;
 function createNextNumber(): number {
-  nextNumber = nextNumber + 1;
-  return nextNumber - 1;
+  return Date.now();
 }
 
 const defaultEncounter: IEncounter[] = [
-  {...createNewEncounter('Alice'), id: 1, ac: 21, initMod: -1, hp: 0, perma: true },
-  {...createNewEncounter('Alvyn'), id: 2, ac: 10, initMod: 0, hp: 0, perma: true },
-  {...createNewEncounter('Edward'), id: 3, ac: 18, initMod: 6, hp: 0, perma: true },
-  {...createNewEncounter('Emerald'), id: 4, ac: 19, initMod: 0, hp: 0, perma: true },
-  {...createNewEncounter('Lewis'), id: 5, ac: 16, initMod: 4, hp: 0, perma: true },
+  {...createNewEncounter('Alice'), id: createNextNumber(), ac: 21, initMod: -1, hp: 0, perma: true },
+  {...createNewEncounter('Alvyn'), id: createNextNumber(), ac: 10, initMod: 0, hp: 0, perma: true },
+  {...createNewEncounter('Edward'), id: createNextNumber(), ac: 18, initMod: 6, hp: 0, perma: true },
+  {...createNewEncounter('Emerald'), id: createNextNumber(), ac: 19, initMod: 0, hp: 0, perma: true },
+  {...createNewEncounter('Lewis'), id: createNextNumber(), ac: 16, initMod: 4, hp: 0, perma: true },
 ];
 
 function getRandomInt(min: number, max: number): number {
