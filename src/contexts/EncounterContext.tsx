@@ -31,8 +31,10 @@ export function createNewEncounter(name?: string, init?: number): IBaseEncounter
   }
 }
 
+let modificationNumber = 0;
 function createNextNumber(): number {
-  return Date.now();
+  modificationNumber = modificationNumber + 1;
+  return Date.now() + modificationNumber;
 }
 
 const defaultEncounter: IEncounter[] = [
