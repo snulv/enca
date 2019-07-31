@@ -65,7 +65,7 @@ const SortableItem = SortableElement(({item, toggleActive}: IItemProps) => {
       key={item.id}
       onClick={toggleActive(item)}
       className={item.active ? 'bg-primary text-light' : ''}
-      style={{ transform: `translateX(${currentX}px)`}}
+      style={{ transform: `translateX(${currentX}px)`, opacity: 1-((currentX / 2)/100) }}
       onTouchStart={startTouch}
       onTouchMove={moveTouch}
       onTouchEnd={endTouch}
