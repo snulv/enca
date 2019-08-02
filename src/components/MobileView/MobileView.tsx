@@ -8,6 +8,10 @@ import {useEffect, useState} from "react";
 import {useEncounterContext} from "../../contexts/EncounterContext";
 import HealthSelector from "../HealthSelector";
 import Sidebar from "react-sidebar";
+import Settings from "../Settings";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import { faCog } from '@fortawesome/free-solid-svg-icons'
+
 
 interface IProps {
 }
@@ -16,6 +20,10 @@ function MobileView({}: IProps) {
   const { encounterList, clearEncounter, rollInitiative, editEncounter } = useEncounterContext();
   const [bottomBarView, setBottomBarView] = useState('');
   const [ damageMod, setDamageMod ] = useState(0);
+  const [ showSettings, setShowSettings ] = useState(false);
+  const toggleSettings = () => {
+    setShowSettings(!showSettings)
+  };
 
   const handleChangeView = (view: string) => () => {
     setBottomBarView(view);
@@ -36,6 +44,7 @@ function MobileView({}: IProps) {
   const activeItem = bottomBarView !== 'deal' ? encounterList.find(item => item.active) : undefined;
 
   const handleOutSideSidebarClick = () => {
+    setShowSettings(false);
     if (!activeItem) {
       return;
     }
@@ -57,16 +66,27 @@ function MobileView({}: IProps) {
   }, [encounterList]);
 
 
-
-
-  return (
-    <Sidebar
-      sidebar={( activeItem && (
+  const displaySidebarContent = () => {
+    if (showSettings) {
+      return (
+        <div className="p-2 pb-5">
+          <Settings />
+        </div>
+      );
+    }
+    if (activeItem) {
+      return (
         <div className="p-2 pb-5">
           <ActiveEncounter encounter={activeItem}/>
         </div>
-      ))}
-      open={!!activeItem}
+      )
+    }
+  };
+
+  return (
+    <Sidebar
+      sidebar={displaySidebarContent()}
+      open={!!activeItem || showSettings}
       onSetOpen={handleOutSideSidebarClick}
       styles={{ sidebar: { background: "white", padding: "5px", maxWidth: '75vw', width: '100%', zIndex: '1040' } }}
       pullRight
@@ -85,6 +105,9 @@ function MobileView({}: IProps) {
         ) : (
           <div>
             <ButtonGroup className="d-flex">
+              <Button className="c-mobile-nav__item" onClick={toggleSettings} color="secondary" size="lg">
+                <FontAwesomeIcon icon={faCog} />
+              </Button>
               <Button className="w-100 c-mobile-nav__item" onClick={handleRoll} color="info" size="lg">
                 Roll
               </Button>

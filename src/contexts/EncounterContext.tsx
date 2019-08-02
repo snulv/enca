@@ -69,7 +69,7 @@ function useEncounter() {
   }));
   const setEncounterList = (newList: IEncounter[]) => setEncounter(newList);
   const clearEncounter = () => {
-    setEncounter(defaultEncounter);
+    setEncounter(encounterList.filter(item => item.perma).map(item => ({ ...item, init: 0})));
   };
   const rollInitiative = () => {
     let mutateList = [...encounterList];
@@ -79,7 +79,7 @@ function useEncounter() {
     }));
     mutateList.forEach(firstItem => {
       if (!firstItem.init) {
-        const init = getRandomInt(0, 20) + firstItem.initMod;
+        const init = getRandomInt(1, 20) + firstItem.initMod;
 
         mutateList.forEach(secondItem => {
           if (firstItem.label === secondItem.label) {

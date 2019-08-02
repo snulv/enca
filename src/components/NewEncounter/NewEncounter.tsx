@@ -10,7 +10,7 @@ import {IRole} from "./types/role";
 import modifyMonsterByRole from "./utility/modifyMonsterByRole";
 import {IRank} from "./types/rank";
 import modifyMonsterByRank from "./utility/modifyMonsterByRank";
-import {createNewEncounter, IBaseEncounter, useEncounterContext} from "../../contexts/EncounterContext";
+import {createNewEncounter, useEncounterContext} from "../../contexts/EncounterContext";
 import ResponsiveView from "../../utility/ResponsiveView";
 import {usePermaEncounterContext} from "../../contexts/SaveListContext";
 

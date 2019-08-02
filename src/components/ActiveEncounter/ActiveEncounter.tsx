@@ -13,7 +13,7 @@ interface IProps {
 }
 
 function ActiveEncounter({ encounter }: IProps) {
-  const { encounterList, addEncounter, editEncounter } = useEncounterContext();
+  const { encounterList, editEncounter } = useEncounterContext();
 
   const [selectedTraits, setTraits] = useState<string[]>([]);
   const [selectedPowers, setPowers] = useState<string[]>([]);
