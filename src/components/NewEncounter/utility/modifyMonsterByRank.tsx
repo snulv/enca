@@ -25,8 +25,10 @@ const modifyMonsterByRank = (monster: IMonster, type: string, numberOfPlayer: nu
   } else {
     modifiedMonster.hp =          Math.round(Number(modifiedMonster.hp) * Number(rank.hp)).toString();
   }
-  modifiedMonster.attack =        Math.round(Number(modifiedMonster.attack) + Number(rank.attack)).toString();
-  modifiedMonster.damage =        Math.round(Number(modifiedMonster.damage) * Number(rank.dmg)).toString();
+  modifiedMonster.attack    =        Math.round(Number(modifiedMonster.attack)   + Number(rank.attack)).toString();
+  modifiedMonster.spellDC1  =        Math.round(Number(modifiedMonster.spellDC1) + Number(rank.attack)).toString();
+  modifiedMonster.spellDC2  =        Math.round(Number(modifiedMonster.spellDC2) + Number(rank.attack)).toString();
+  modifiedMonster.damage    =        Math.round(Number(modifiedMonster.damage) * Number(rank.dmg)).toString();
   modifiedMonster.perception =    Math.round(Number(modifiedMonster.perception) + Number(rank.perception)).toString();
   modifiedMonster.stealth =       Math.round(Number(modifiedMonster.stealth) + Number(rank.stealth)).toString();
   modifiedMonster.init =          Math.round(Number(modifiedMonster.init) + Number(rank.init)).toString();

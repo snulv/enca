@@ -6,8 +6,8 @@ export interface IMonster {
   hp: string;
   attack: string;
   damage: string;
-  spellSave: string;
-  spellMod: string;
+  spellDC1: string;
+  spellDC2: string;
   perception: string;
   stealth: string;
   init: string;

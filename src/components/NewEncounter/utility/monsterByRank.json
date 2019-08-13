@@ -1,6 +1,6 @@
 [
-  {"type": "Minion", "ac": "-2", "saving":  "-2", "hp": "0.2","attack": "-2", "dmg": "0.75", "perception": "-2", "stealth": "-2", "init": "-2", "traits": []},
-  {"type": "Standard", "ac": "0", "saving":  "0", "hp": "1","attack": "0", "dmg": "1", "perception": "0", "stealth": "0", "init": "0", "traits": []},
-  {"type": "Elite", "ac": "+2", "saving":  "+2", "hp": "2","attack": "+2", "dmg": "1.1", "perception": "+2", "stealth": "+2", "init": "+2", "traits": ["Paragon Action: You may take one Paragon Action per round to either move or take an action."]},
-  {"type": "Boss", "ac": "+2", "saving":  "+2", "hp": "-1","attack": "+2", "dmg": "1.3", "perception": "+4", "stealth": "+2", "init": "+4", "traits": ["Paragon Actions: You may take one Paragon Action per player (minus 1) per round to either move or act.", "Phase Transition: At 66% and 33% hit points, you may remove all on-going effects on yourself and trigger a new phase transition."]}
+  {"type": "Minion",   "ac": "-2", "saving":  "-2", "hp": "0.2",  "attack": "-2", "dmg": "0.75",  "perception": "-2", "stealth": "-2",  "init": "-2", "traits": []},
+  {"type": "Standard", "ac": "0",  "saving":  "0",  "hp": "1",    "attack": "0",  "dmg": "1",     "perception": "0",  "stealth": "0",   "init": "0",  "traits": []},
+  {"type": "Elite",    "ac": "+2", "saving":  "+2", "hp": "2",    "attack": "+2", "dmg": "1.1",   "perception": "+2", "stealth": "+2",  "init": "+2", "traits": ["Paragon Action: You may take one Paragon Action per round to either move or take an action."]},
+  {"type": "Boss",     "ac": "+2", "saving":  "+2", "hp": "-1",   "attack": "+2", "dmg": "1.3",   "perception": "+4", "stealth": "+2",  "init": "+4", "traits": ["Paragon Actions: You may take one Paragon Action per player (minus 1) per round to either move or act.", "Phase Transition: At 66% and 33% hit points, you may remove all on-going effects on yourself and trigger a new phase transition."]}
 ]

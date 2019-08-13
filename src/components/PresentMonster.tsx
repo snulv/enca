@@ -57,7 +57,7 @@ const PresentMonster = ({monster}: IProps) => (
       <b className="text-danger">Attacks:</b><span className="float-right">Hit: {monster.attack}, Dmg: {monster.damage}</span>
     </div>
     <div>
-      <b className="text-danger">Attack DC:</b><span className="float-right">Primary: {monster.spellSave}, Secondary: {monster.spellMod}</span>
+      <b className="text-danger">Attack DC:</b><span className="float-right">Primary: {monster.spellDC1}, Secondary: {monster.spellDC2}</span>
     </div>
     <div>
       <b className="text-danger">Multi attack:</b><span className="float-right">{calculateMultiAttacks(Number(monster.damage))}</span>

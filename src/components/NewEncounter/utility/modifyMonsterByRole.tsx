@@ -21,7 +21,9 @@ const modifyMonsterByRole = (monster: IMonster, type: string): IMonster => {
   modifiedMonster.save2 =     Math.round((Number(modifiedMonster.save2) + Number(role.saving))).toString();
   modifiedMonster.save3 =     Math.round((Number(modifiedMonster.save3) + Number(role.saving))).toString();
   modifiedMonster.hp =        Math.round((Number(modifiedMonster.hp) * Number(role.hp))).toString();
-  modifiedMonster.attack =    Math.round((Number(modifiedMonster.attack) + Number(role.attack))).toString();
+  modifiedMonster.attack    =    Math.round((Number(modifiedMonster.attack)   + Number(role.attack))).toString();
+  modifiedMonster.spellDC1  =    Math.round((Number(modifiedMonster.spellDC1) + Number(role.attack))).toString();
+  modifiedMonster.spellDC2  =    Math.round((Number(modifiedMonster.spellDC2) + Number(role.attack))).toString();
   modifiedMonster.damage =    Math.round((Number(modifiedMonster.damage) * Number(role.dmg))).toString();
   modifiedMonster.speed =     Math.round((Number(modifiedMonster.speed) + Number(role.speed))).toString();
   if (role.perception) {
