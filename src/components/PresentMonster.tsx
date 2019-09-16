@@ -31,7 +31,7 @@ const PresentMonster = ({monster}: IProps) => (
           <b className="text-danger">AC:</b><span className="float-right">{monster.ac}</span>
         </div>
         <div>
-          <b className="text-danger">HP:</b><span className="float-right">{monster.hp}</span>
+          <b className="text-danger">HP:</b><span className="float-right">{monster.hp} ({(Number(monster.hp)/2).toFixed(0)})</span>
         </div>
         <div>
           <b className="text-danger">Speed:</b><span className="float-right">{monster.speed}</span>
