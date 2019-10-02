@@ -49,11 +49,11 @@ const PresentMonster = ({monster}: IProps) => (
         </div>
       </div>
     </div>
+    <div className="border-bottom border-danger my-2" />
     <div>
       <b className="text-danger">Ability Array:</b>
       <span className="float-right">{monster.a1}, {monster.a2}, {monster.a3}, {monster.a4}, {monster.a5}, {monster.a6}</span>
     </div>
-    <div className="border-bottom border-danger my-2" />
     <div>
       <b className="text-danger">Saving throws:</b><span className="float-right">{monster.save1}, {monster.save2}, {monster.save3}</span>
     </div>
