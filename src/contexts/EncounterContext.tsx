@@ -40,7 +40,7 @@ function createNextNumber(): number {
 const defaultEncounter: IEncounter[] = [
   {...createNewEncounter('Alice'), id: createNextNumber(), ac: 21, initMod: -1, hp: 0, perma: true },
   {...createNewEncounter('Alvyn'), id: createNextNumber(), ac: 10, initMod: 0, hp: 0, perma: true },
-  {...createNewEncounter('Edward'), id: createNextNumber(), ac: 18, initMod: 6, hp: 0, perma: true },
+  {...createNewEncounter('Eidward'), id: createNextNumber(), ac: 18, initMod: 6, hp: 0, perma: true },
   {...createNewEncounter('Emerald'), id: createNextNumber(), ac: 19, initMod: 0, hp: 0, perma: true },
   {...createNewEncounter('Lewis'), id: createNextNumber(), ac: 16, initMod: 4, hp: 0, perma: true },
 ];

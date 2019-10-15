@@ -7,6 +7,7 @@ import {default as spells} from './utility/spells.json';
 import {IMonster} from "../NewEncounter/types/monster";
 import {useState} from "react";
 import {usePermaEncounterContext} from "../../contexts/SaveListContext";
+import PresentPlayer from "../PresentPlayer";
 
 interface IProps {
   encounter: IEncounter;
@@ -85,7 +86,7 @@ function ActiveEncounter({ encounter }: IProps) {
 
   return (
     <div>
-      {encounter.monster && (
+      {encounter.monster ? (
         <React.Fragment>
           <PresentMonster monster={encounter.monster} />
           <FormGroup>
@@ -124,6 +125,10 @@ function ActiveEncounter({ encounter }: IProps) {
             </InputGroup>
           </FormGroup>
         </React.Fragment>
+      ) : (
+        <PresentPlayer
+          encounter={encounter}
+        />
       )}
     </div>
   );
