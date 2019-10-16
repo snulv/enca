@@ -18,7 +18,7 @@ const PresentPlayer = ({encounter}: IProps) => (
           <b className="text-danger">HP:</b><span className="float-right">{encounter.hp} ({(Number(encounter.hp)/2).toFixed(0)})</span>
         </div>
         <div>
-          <b className="text-danger">Init:</b><span className="float-right">{encounter.init}</span>
+          <b className="text-danger">Init:</b><span className="float-right">{encounter.initMod}</span>
         </div>
       </div>
     </div>
